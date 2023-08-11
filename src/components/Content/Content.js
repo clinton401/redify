@@ -13,13 +13,15 @@ import Subreddits from "../Subreddits/Subreddits";
 function Content({ data, setSearchParams, loading, setloading, searchParams }) {
   const [clickedIndexes, setClickedIndexes] = useState([]);
   const [likesCounts, setLikesCounts] = useState([]);
+  const [dts, setDts] = useState();
 
   useEffect(() => {
     setTimeout(() => {
       setloading(false);
+      setDts(data)
     }, 3000);
-  }, [data]);
-
+  }, [data, setloading]);
+  console.log(dts);
   const clickHandler = (index) => {
     if (clickedIndexes.includes(index)) {
       setClickedIndexes(clickedIndexes.filter((item) => item !== index));

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import NavCss from "./Navbar.module.css";
 import { IconContext } from "react-icons";
 import { FaRedditAlien } from "react-icons/fa";
@@ -80,35 +80,42 @@ function Navbar({ searchParams, setSearchParams, setloading }) {
           <h1>Redify</h1>
         </div>
         <div className={NavCss.me}>
-        <div className={`menu-button ${isOpen ? "open" : ""}`} onClick={toggleMenu}>
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
+          <div className={`menu-button ${isOpen ? "open" : ""}`} onClick={toggleMenu}>
+            <div className="bar"></div>
+            <div className="bar"></div>
+            <div className="bar"></div>
           </div>
         </div>
         <div className={`menu-content ${isOpen ? "open" : ""}`} >
           <div className={NavCss.undermenu}>
-          <div className={NavCss.hamsearch}>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                setSearchParams(inputValue);
-                setloading(true);
-              }}
-            >
-              <input
-                type="text"
-                onChange={(e) => setInputValue(e.target.value)}
-                ref={inputRef}
+            <div className={NavCss.hamsearch}>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setSearchParams(inputValue);
+                  setloading(true);
+                  
+                  closeMenu()
+                }}
+              >
+                <input
+                  type="text"
+                  onChange={(e) => setInputValue(e.target.value)}
+                  ref={inputRef}
+                />
+              </form>
+              <FontAwesomeIcon
+                icon={faSearch}
+                className={NavCss.search}
+                onClick={() => {
+                  searchFocus()
+                  if (inputValue.length > 1) {
+                    closeMenu()
+                  }
+                }}
               />
-            </form>
-            <FontAwesomeIcon
-              icon={faSearch}
-              className={NavCss.search}
-              onClick={searchFocus}
-            />
             </div>
-            
+
           </div>
         </div>
       </div>
