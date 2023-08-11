@@ -20,22 +20,18 @@ function App() {
     axios
       .get(`https://www.reddit.com/search.json?q=${searchParams}`)
       .then((res) => {
-        console.log(
-          res.data.data.children[0].data.all_awardings[0].resized_static_icons
-        [0].url);
+        // console.log(
+        //   res.data.data.children[0].data.all_awardings[0].resized_static_icons
+        // [0].url);
 
         setData(res.data.data.children);
         // setUrl(data.data.url_overridden_by_dest);
       })
       .catch((err) => console.log(err.message));
   }, [searchParams]);
-  const changeHandler = (e) => {
-    if (e.target.value.length >= 2) {
-      setSearchParams(e.target.value);
-    }
-  };
 
-  console.log(data);
+
+  // console.log(data);
   // console.log(url);
   return (
     <div className="App">
