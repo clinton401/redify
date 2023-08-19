@@ -39,7 +39,14 @@ body {
   transition: transform 0.3s ease-in-out;
 }
 
-x
+.bar {
+    width: 30px;
+  height: 3px;
+  background-color: #3d5a80;
+  margin: 3px 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+}
 
 .open .bar:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
@@ -81,6 +88,6 @@ x
   padding: 30px;
 }
 .red {
-  font-size: 100px;
+  font-size: 80px;
   padding: 20px;
 }
