@@ -3,11 +3,13 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
 import Content from "./components/Content/Content";
+import Loader from "./components/Loader/Loader";
 
 function App() {
   // const [url, setUrl] = useState("");
   const [data, setData] = useState([]);
   const [loading, setloading] = useState(true);
+  const [load, setLoad] = useState(true)
 
   const [searchParams, setSearchParams] = useState("");
   useEffect(() => {
@@ -15,7 +17,11 @@ function App() {
     const random = Math.floor(Math.random() * names.length);
     setSearchParams(names[random]);
   }, []);
-
+  useEffect(() => {
+    setTimeout(() => {
+      setLoad(false)
+    }, 3000);
+  }, [])
   useEffect(() => {
     axios
       .get(`https://www.reddit.com/search.json?q=${searchParams}`)
@@ -35,18 +41,23 @@ function App() {
   // console.log(url);
   return (
     <div className="App">
-      <Navbar
-        searchParams={searchParams}
-        setSearchParams={setSearchParams}
-        setloading={setloading}
-      />
-      <Content
-        data={data}
-        searchParams={searchParams}
-        loading={loading}
-        setloading={setloading}
-        setSearchParams={setSearchParams}
-      />
+      {
+        load ? <Loader /> :
+          <div>
+            <Navbar
+              searchParams={searchParams}
+              setSearchParams={setSearchParams}
+              setloading={setloading}
+            />
+            <Content
+              data={data}
+              searchParams={searchParams}
+              loading={loading}
+              setloading={setloading}
+              setSearchParams={setSearchParams}
+            />
+          </div>
+      }
       {/* <div>
         {data.map((p) => (
           <ul key={p.data.id}>
