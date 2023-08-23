@@ -17,6 +17,7 @@
       border-radius: 10px;
       height: auto;
       margin-bottom: 20px;
+      
       object-fit: cover;
       /* object-position: center; */
     }
@@ -26,8 +27,8 @@
   }
 .content {
   margin-top: 100px;
-  padding-top: 20px;
-  padding-left: 10px;
+  
+  padding: 20px 10px;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -86,7 +87,7 @@
   width: 74%;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 830px) {
  
    .uls {
     width: 98%;
@@ -104,11 +105,7 @@
     .content h4 {
       font-size: 14px;
     }
-  .content {
-    padding: 0;
-    
-   
-  }
+  
   .sub {
     width: 90%;
     margin: 0 auto;
