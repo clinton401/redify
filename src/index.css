@@ -4,7 +4,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+#ul {
+  box-shadow: none;
+}
 body {
   font-family: 'Inter', sans-serif;
   overflow-X: hidden;

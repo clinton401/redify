@@ -28,7 +28,7 @@ function Subreddits({ setSearchParams, setloading, searchParams }) {
             
             cssOverride={CSSProperties}
           /> :
-        <ul className={subCss.ul}>
+        <ul className={subCss.ul} id="ul">
           <li
             onClick={() => handleLiClick(0, "home")}
             className={`liss ${clickedIndex === 0 ? "lone" : ""}`}
@@ -69,7 +69,7 @@ function Subreddits({ setSearchParams, setloading, searchParams }) {
       <style>
         {`
           .liss.lone {
-            border: 8px solid red;
+            
             background-color: #3d5a80;
             transition: .5s;
           }
